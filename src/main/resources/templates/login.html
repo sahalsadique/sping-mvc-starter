@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+   <title>Login </title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    
+	
+</head>
+<body>
+	<div class="login-page">
+	<div class="form" >
+    <form class="login-form" id = "login-form" action="#" th:action="@{/login}" th:object="${user}" method="post">
+		<input placeholder="email" type="text" th:field="*{email}"  th:required="true"/>
+		<input placeholder="password" type="password" th:field="*{password}"  th:required="true"/>
+		<button type="submit" value="Login">login</button>
+    </form>
+    <div th:if="${status} == 'failed'">
+    	<input class="login-failed" type="text" value="Authentication failed ! "  />
+    </div> 
+    <p class="message">Not registered? <a th:href="@{/signUp}">Create an account</a></p>
+    </div>
+	</div>
+</body>
+</html>
+
