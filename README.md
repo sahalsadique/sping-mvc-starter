@@ -7,10 +7,10 @@ Calculate and store your simple interest calculations.
 ### Prerequisites
 
 Java  
-Maven
-Eclipse
-Tomcat 
-Mysql
+Maven  
+Eclipse  
+Tomcat  
+Mysql  
 
 ### Database schema
 
@@ -71,13 +71,13 @@ Setup Apache Tomcat server, if it's not setup already.
 
 On your browser: visit http://localhost:8080/spring-demo/login
 
-### Registration
-
+- Registration  
+  
 Select "create an account". Enter name, email and password and click submit.
 
-### Login to home page
-
-Enter the registered email and password and login into home page.
-Enter the Principal amount, rate of interest and tenure and click on calculate.
-The page will display all the previous calculations.
+- Login to home page  
+  
+Enter the registered email and password and login into home page.  
+Enter the Principal amount, rate of interest and tenure and click on calculate.  
+The page will display all the previous calculations.  
 
