@@ -1,6 +1,6 @@
 # SIMPLE INTEREST CALCULATIONS
 
-Caculate and store your simple interest calculations.
+Calculate and store your simple interest calculations.
 
 ## Setup
 
