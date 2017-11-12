@@ -3,18 +3,20 @@
 <head> 
     <title>Registration</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link  rel="stylesheet" th:href="@{app.css}" type="text/css"></link>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
 </head>
 
 <body>
-	<div class="heading" >REGISTRATION FORM</div>
- 	<div class="form">
-    <form action="#" th:action="@{/signUp}" th:object="${user}" method="post">
-    <input placeholder="name" type="text" th:field="*{name}" th:required="true" />
-    <input id="email" placeholder="Email" type="email" th:field="*{email}" th:required="true"/>
-	<input placeholder="Password" type="password" th:field="*{password}" th:required="true"/>
-	<button type="submit" value="Submit" id="submitbtn" >Submit</button>
+	<div class="wrapper" >
+    <form class="form-signin" th:action="@{/signUp}" th:object="${user}" method="post">
+    <h2 class="form-heading">Please Register</h2>
+    <input placeholder="name" class="form-control" type="text" th:field="*{name}" th:required="true" />
+    <input id="email" placeholder="Email" class="form-control" type="email" th:field="*{email}" th:required="true"/>
+	<input placeholder="Password" type="password" class="form-control" th:field="*{password}" th:required="true"/>
+	<button type="submit" class="btn btn-lg btn-primary btn-block" value="Submit" id="submitbtn" >Submit</button>
 	<div th:if="${status} == 'error' ">
-	 <input id="error-text" type="text" value="Registration Failed! Please try again !" />
+	 <span style="color:red" >Registration Failed! Please try again !</span>
 	</div>
     <p class="message">Already registered? <a th:href="@{/login}">Login</a></p>
     </form>

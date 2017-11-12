@@ -6,43 +6,87 @@
    
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+   <style>
+   .bottom-buffer { margin-bottom:2%; }
+   </style>  
 </head>
 <body>
 
-	<button class="btn" onclick="logout()" type="button">logout</button>
-	<div class="form" >
-    <form class="login-form" id = "login-form" action="#" th:action="@{/calculateSI}" th:object="${simpleInterest}" method="post">
-		<input placeholder="princial" type="number" step="any" th:field="*{principal}"  th:required="true"/>
-		<input placeholder="rate" type="number" step="any" th:field="*{rate}"  th:required="true"/>
-		<input placeholder="time" type="number" step="any" th:field="*{time}"  th:required="true"/>
-		<input type="hidden" th:field="*{userId}" />
-		<button type="submit" value="calculate">calculate Simple Interest</button>
-    </form>
+	<div class="row page-header">
+		<div class="col-lg-12">
+			<div class="col-lg-12">
+			    <ul class="nav nav-pills pull-right">
+			      <li><button class="btn" onclick="logout()" type="button">logout</button></li>
+			    </ul>
+			</div>
+		</div>
 	</div>
-	
-	<div class="table table-responsive">
-		<table
-			class="table table-bordered dataTable" id="interestTable">
-			<thead>
-				<tr>
-					<th>Date</th>
-					<th>Principal</th>
-					<th>Rate</th>
-					<th>Time</th>
-					<th>Simple Interest</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="interest: ${interests}">
-					<td th:text="${interest.createdAt}"></td>
-					<td th:text="${interest.principal}"></td>
-					<td th:text="${interest.rate}"></td>
-					<td th:text="${interest.time}"></td>
-					<td th:text="${interest.interest}"></td>
-				</tr>
-			</tbody>
-		</table>
+
+	<div id="page-wrapper">
+	<div class="row bottom-buffer">
+		<div class="col-lg-12">
+		<div class="form">
+			<form class="login-form" id="login-form" action="#"
+				th:action="@{/calculateSI}" th:object="${simpleInterest}"
+				method="post">
+				<div class="col-lg-3">
+					<input placeholder="Enter Principal Amount" class="form-control" type="number" step="any" 
+					th:field="*{principal}" th:required="true" /> 
+				</div>
+				<div class="col-lg-3">
+					<input placeholder="Enter Rate of Interest" class="form-control" type="number" step="any" 
+					th:field="*{rate}" th:required="true" /> 
+				</div>
+				<div class="col-lg-3">
+					<input placeholder="Enter Tenure" class="form-control" type="number" step="any" 
+					th:field="*{time}" th:required="true" /> 
+				</div>
+				<input	type="hidden" th:field="*{userId}" />
+				<div class="col-lg-3">
+					<button type="submit" class="btn btn-primary btn-block">Calculate Simple Interest</button>
+				</div>
+			</form>
+		</div>
+	   </div>
 	</div>
+
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">Your Interest Calculations</div>
+						<div class="panel-body">
+							<div class="table table-responsive">
+								<table class="table table-bordered dataTable" id="interestTable">
+									<thead>
+										<tr>
+											<th>Date</th>
+											<th>Principal</th>
+											<th>Rate</th>
+											<th>Time</th>
+											<th>Simple Interest</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="interest: ${interests}">
+											<td th:text="${interest.createdAt}"></td>
+											<td th:text="${interest.principal}"></td>
+											<td th:text="${interest.rate}"></td>
+											<td th:text="${interest.time}"></td>
+											<td th:text="${interest.interest}"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 <script type="text/javascript">
 	function logout() {
